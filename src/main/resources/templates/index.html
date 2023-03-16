@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API testing</title>
+</head>
+<body>
+    <h2>Create new item</h2>
+    <form data-th-object="${item}" action="/" method="get">
+        <p>Name: <input type="text" data-th-value="*{name}" data-th-field="*{name}" /></p>
+        <p>Price: <input type="text" data-th-value="*{price}" data-th-field="*{price}" /></p>
+        <p>Username: <input type="text" data-th-value="*{username}" data-th-field="*{username}"></p>
+        <button type="submit">Create!</button>
+    </form>
+    <div data-th-if="${result != null}" data-th-object="${result}">
+        <hr>
+        <h3>Item successfully created.</h3>
+        <p>Name: <span data-th-text="*{name}"></span></p>
+        <p>Price: <span data-th-text="*{price}"></span></p>
+        <p>Username: <span data-th-text="*{username}"></span></p>
+        <p>ID: <span data-th-text="*{id}"></span></p>
+        <p>Datetime: <span data-th-text="*{dt}"></span></p>
+    </div>
+    <hr>
+    <a href="/show-all">Show all items</a>
+</body>
+</html>
